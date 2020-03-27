@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+ 
+<title>Grid Template for Bootstrap</title>
+
+<!--IMPORTANT jQuery must come first before bootstrap-->
+
+<!--jquery-->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css" />
+<script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<!--jquery ui-->
+<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+
+ <!--jquery datatables-->
+<script src="http://cdn.datatables.net/1.10.3/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/1.10.3/css/jquery.dataTables.css" />
+
+<!--footable-->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-footable/0.1.0/js/footable.js"></script>
+
+<link href="footable.css" rel="stylesheet" type="text/css" />
+<!--<link href="http://cdnjs.cloudflare.com/ajax/libs/jquery-footable/0.1.0/css/footable.css" rel="stylesheet" type="text/css" />-->
+
+<script src="file://C:\Users\PKellogg\Desktop\bootstrap test\prototype\js\footable.sort.js"></script>
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+<!--bootstrap-->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+<link href="http://getbootstrap.com/2.3.2/assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+<!--web components-->
+<script src = "fx-table.js"></script>
+
+<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+<style>
+table, th, td {font-size:14px;color:black;text-shadow:none;}
+table, th  {background-color:none;color:rgb(67,67,67);text-shadow:none;}
+tr:hover td { background: #CAEFFD; color: blue; cursor: pointer;text-shadow:none; }
+.push-left {!important;}
+.pull-right {!important;}
+ 
+
+#radio-view-a {visibility:hidden;}
+#radio-view-b {visibility:hidden;}
+#radio-view-c {visibility:hidden;}
+#radio-view-d {visibility:hidden;}
+#radio-view-e {visibility:hidden;}
+#radio-view-f {visibility:hidden;}
+#radio-view-g {visibility:hidden;}
+#radio-view-h {visibility:hidden;}
+#radio-view-i {visibility:hidden;}
+#radio-view-j {visibility:hidden;}
+#radio-view-y {visibility:hidden;}
+#radio-view-z {visibility:hidden;}
+#checkbox-1 {visibility:hidden;}
+#checkbox-2 {visibility:hidden;}
+#radio-choice-21 {visibility:hidden;}
+#radio-choice-22 {visibility:hidden;}
+#radio-choice-23 {visibility:hidden;}
+#radio-choice-24 {visibility:hidden;}
+#radio-choice-25 {visibility:hidden;}
+</style>
+<!--order is important here-------->
+
+<script type="text/javascript">
+        $(function () {
+            $('table').bind('footable_breakpoint', function() {
+                $('table').trigger('footable_expand_first_row');
+            }).footable();
+        });
+</script> 
+ 
+ 
+<script>
+$(document).ready(function(){
+  $('table').DataTable( {
+pageLength:5, 
+searching:false,
+lengthChange:false,
+paging: true,
+rowBorder:"none",
+pagingType:"simple" 
+});
+});
+</script>
+
+</head>
+
+<body>
+
+	<div data-role="page" id="myPage" style="background-image: url('slide1.png');padding-left:40px;padding-right:40px;"><!--wraps entire application--> 
+
+		<!--blue header with title one column row-->
+		<div class="row" style="background-color:#4D148C;height:60px;" > 
+			<div class="col-sm-4 col-lg-12" style="text-align:center;padding-top:10px;"padding:0px;margin:0px;><span style="color:rgb(150,150,150);font-family:timesroman;font-size:24px;letter-spacing:8px;text-shadow:none;">RADAR Outbound - PDX</span></div>
+		</div> 
+
+		<div class="row" style="background-color:white;"><!--split 2 column row begins-->
+			
+			<div class="col-lg-6 "><!--left column for flight table-->
+				<p style="margin-top:10px;"><span style="font-size:18px;color:#4D1486;">Outbound Flights</span></p>
+			
+				<table  id="details"  cellspacing="0" width="100%" class="footable table toggle-circle">
+				<thead>
+				<tr> 
+				<th data-sort-initial="true" data-type="numeric" data-class="expand"  data-toggle="true" style="background-color:#4D1486;color:white;">Flight</th>
+				<th style="background-color:#4D1486;color:white;">Tail</th>
+				<th style="background-color:#4D1486;color:white;">Gate</th>
+				<th style="background-color:#4D1486;color:white;" >Arrive</th>
+				<th style="background-color:#4D1486;color:white;" >Depart</th>
+				<th style="background-color:#4D1486;color:white;" >Model</th>
+				<th style="background-color:#4D1486;color:white;" >Cage</th>
+				<th style="background-color:#4D1486;color:white;" >Guards</th>
+				<th style="background-color:#4D1486;color:white;" >Fly</th>
+				</tr> 
+				</thead>            
+				<tbody>
+				<!--data-hide="phone"-->
+				<tr >
+				<td  style="border-top:none;" name="id" >743</td>
+				<td style="border-top:none;">608</td>
+				<td style="border-top:none;">132</td>
+				<td style="border-top:none;">17:30</td>
+				<td style="border-top:none;">19:30</td>
+				<td style="border-top:none;">DC10</td>
+				<td style="border-top:none;">Y</td>
+				<td style="border-top:none;">Y</td>
+				<td style="border-top:none;">Y</td>
+				</tr>
+				<tr >
+				<td  style="border-top:none;" name="id" >743</td>
+				<td style="border-top:none;">608</td>
+				<td style="border-top:none;">132</td>
+				<td style="border-top:none;">17:30</td>
+				<td style="border-top:none;">19:30</td>
+				<td style="border-top:none;">DC10</td>
+				<td style="border-top:none;">Y</td>
+				<td style="border-top:none;">Y</td>
+				<td style="border-top:none;">Y</td>
+				</tr>
+				<tr >
+				<td  style="border-top:none;" name="id" >743</td>
+				<td style="border-top:none;">608</td>
+				<td style="border-top:none;">132</td>
+				<td style="border-top:none;">17:30</td>
+				<td style="border-top:none;">19:30</td>
+				<td style="border-top:none;">DC10</td>
+				<td style="border-top:none;">Y</td>
+				<td style="border-top:none;">Y</td>
+				<td style="border-top:none;">Y</td>
+				</tr>
+				<tr >
+				<td  style="border-top:none;" name="id" >743</td>
+				<td style="border-top:none;">608</td>
+				<td style="border-top:none;">132</td>
+				<td style="border-top:none;">17:30</td>
+				<td style="border-top:none;">19:30</td>
+				<td style="border-top:none;">DC10</td>
+				<td style="border-top:none;">Y</td>
+				<td style="border-top:none;">Y</td>
+				<td style="border-top:none;">Y</td>
+				</tr>
+				</table>
+			</div><!--end left column with flight schedule-->
+
+			
+			<div class="col-lg-6 col-lg-6" style="margin-top:30px;margin-bottom:10px;background-color:white;"><!--begin right column-->
+
+				<div  data-role="collapsible-set" data-theme="a" data-content-theme="a" style="padding-top:17px;padding-right:20px;margin-top:0px;text-shadow:none;"><!--begin accordion-->
+				<style>
+						.ui-body-a  {
+						background-color:#4D1486; 
+						}
+						</style>
+					
+					
+					<div data-role="collapsible" data-theme="a" style="border:none;">
+						
+						
+						<script>
+							$( function() {
+							$( "#tabs" ).tabs();
+							} );
+						</script>
+
+						<h3>Sort Status<span style="float:right;padding-left:20px;">Volume:<span style = "color:red;"> 164,232</span></span><span style="float:right;">Countdown:<span style = "color:green;"> 2:55:00</span></span></h3></h3>
+
+						<table   style = "text-align:center;border-spacing:25px;border-collapse: seperate;background-color:#4D1486;" id="details"   " width="100%" class="footable table toggle-circle">
+						<tbody >
+						<tr style = "background-color:none;">
+						<td    style = " background-color:#4D1486;color:white;border:none;opacity:.8;border-radius:10px;" name="id">Pallets<br /><span style = "font-weight:bold;font-size:14px;">5<span></td>
+						<td style = " background-color:#4D1486;color:white;border:none;opacity:.8;border-radius:10px;">Cans<br /><span style = "font-weight:bold;font-size:14px;">6</span></td>
+						<td style = " background-color:#4D1486;color:white;border:none;opacity:.8;border-radius:10px;">Heavy<br /><span style = "font-weight:bold;font-size:14px;">30</td>
+						</tr> 
+
+						<tr style = "background-color:none;">
+						<td    style = " background-color:#4D1486;color:white;border:none;opacity:.8;border-radius:10px;" name="id">Hazardous<br /><span style = "font-weight:bold;font-size:14px;">22<span></td>
+						<td style = " background-color:#4D1486;color:white;border:none;opacity:.8;border-radius:10px;">ULD <br /><span style = "font-weight:bold;font-size:14px;">87.6%</span></td>
+						<td style = " background-color:#4D1486;color:white;border:none;opacity:.8;border-radius:10px;">ULD Scan<br /><span style = "font-weight:bold;font-size:14px;">4,876/hr</td>
+						</tr>
+
+						<tr style = "background-color:none;">
+						<td style = " background-color:#4D1486;color:white;border:none;opacity:.8;border-radius:10px;">Overflow<br /><span style = "font-weight:bold;font-size:14px;">PHX/OAK</td>
+						<td    style = " background-color:#4D1486;color:white;border:none;opacity:.8;border-radius:10px;" name="id">Rollover<br /><span style = "font-weight:bold;font-size:14px;">AYYC037FXz<br /><span style="color:silver;font-size:12px;font-style:italic;">Courtyard/1,oo1<span></td>
+						<td style = " background-color:#4D1486;color:white;border:none;opacity:.8;border-radius:10px;">Rollover <br /><span style = "font-weight:bold;font-size:14px;">AYYC038FX<br /><span style="color:silver;font-size:12px;font-style:italic;">Courtyard/1,111<span></td>
+						</tr>
+						</tbody>
+						</table>
+				
+					<div id="tabs" >
+						<ul >
+							<li><a href="#tabs-1" style = "background-color:#4D1486;color:silver;font-family:roboto;font-weight:normal;text-shadow:none;">Inspect Scales</a></li>
+							<li><a href="#tabs-2" style = "background-color:#4D1486;color:silver;font-family:roboto;font-weight:normal;text-shadow:none;">Fastest Scans</a></li>
+							<li><a href="#tabs-3" style = "background-color:#4D1486;color:silver;font-family:roboto;font-weight:normal;text-shadow:none;">More Haz Volume</a></li>
+					</ul>
+					<div id="tabs-1" style = "background-color:#4D1486;">
+						<div style="position:relative;width:100%;height:100px;background-color:#4D1486;color:silver;font-family:roboto;font-size:22px;text-shadow:none;">S18-R3-SD01<button style = "margin-left:80px;display:inline;border:1px silver solid;height:30px;color:silver;width:120px;background-color:#4D1486;font-size:12px;font-weight:normal;text-shadow:none;"  >Add Remarks </button><br /><span style = "color:silver;font-size:12px;">Sticker</span><input type = "checkbox" style = "position:absolute;left:50px;top:-40px;"><span style = "margin-left:40px;color:silver;font-size:12px;position:absolute;left:50px;top: 55px;text-decoration:underline;">ULD NO (or) Asset No. /Type</span>
+						<span style = "margin-left:240px;color:silver;font-size:12px;position:absolute;left:40px;top: 55px;text-decoration:underline;">Known lbs</span>
+						<span style = "color:silver;font-size:12px;position:absolute;left:360px;top:  57px;">Limits?</span><input type = "checkbox" style = "position:absolute;left:410px;top: -40px;">
+						</div>
+
+						<div style="position:relative;width:100%;height:100px;background-color:#4D1486;color:silver;font-family:roboto;font-size:22px;text-shadow:none;">S18-R3-SD01<button style = "margin-left:80px;display:inline;border:1px silver solid;height:30px;color:silver;width:120px;background-color:#4D1486;font-size:12px;font-weight:normal;text-shadow:none;"  >Add Remarks </button><br /><span style = "color:silver;font-size:12px;">Sticker</span><input type = "checkbox" style = "position:absolute;left:50px;top:-40px;"><span style = "margin-left:40px;color:silver;font-size:12px;position:absolute;left:50px;top: 55px;text-decoration:underline;">ULD NO (or) Asset No. /Type</span>
+						<span style = "margin-left:240px;color:silver;font-size:12px;position:absolute;left:40px;top: 55px;text-decoration:underline;">Known lbs</span>
+						<span style = "color:silver;font-size:12px;position:absolute;left:360px;top:  57px;">Limits?</span><input type = "checkbox" style = "position:absolute;left:410px;top: -40px;">
+						</div>
+
+						<div style="position:relative;width:100%;height:100px;background-color:#4D1486;color:silver;font-family:roboto;font-size:22px;text-shadow:none;">S18-R3-SD01<button style = "margin-left:80px;display:inline;border:1px silver solid;height:30px;color:silver;width:120px;background-color:#4D1486;font-size:12px;font-weight:normal;text-shadow:none;"  >Add Remarks </button><br /><span style = "color:silver;font-size:12px;">Sticker</span><input type = "checkbox" style = "position:absolute;left:50px;top:-40px;"><span style = "margin-left:40px;color:silver;font-size:12px;position:absolute;left:50px;top: 55px;text-decoration:underline;">ULD NO (or) Asset No. /Type</span>
+						<span style = "margin-left:240px;color:silver;font-size:12px;position:absolute;left:40px;top: 55px;text-decoration:underline;">Known lbs</span>
+						<span style = "color:silver;font-size:12px;position:absolute;left:360px;top:  57px;">Limits?</span><input type = "checkbox" style = "position:absolute;left:410px;top: -40px;">
+						</div>
+					</div><!--end tabs1-->
+
+					<div id="tabs-2"></div>
+					<div id="tabs-3"></div>
+					</div><!--tabs-->
+					</div><!--end pre sort collapsable-->
+					
+					
+					<div data-role="collapsible" data-theme="a" style="border:none;">
+						<style>.ui-body-a  {background-color:rgb(0,43,82);}</style>
+						<script>
+							$( function() {
+							$( "#tabs" ).tabs();
+							} );
+						</script>
+
+						<h3>Pre-Sort Status<span style="float:right;padding-left:16px;">Volume:<span style = "color:red;"> 16,300</span></span><span style="float:right;">Next Sort:<span style = "color:green;"> 18:05</span></span></h3>
+
+						<table   style = "text-align:center;border-spacing:25px;border-collapse: seperate;" id="sortstatus"   " width="100%" class="footable table toggle-circle">
+						
+						<tbody >
+						<tr style = "background-color:none;">
+						<td    style = " background-color:red;color:white;border:none;opacity:.8;border-radius:10px;" name="id">Pallets<br /><span style = "font-weight:bold;font-size:14px;">5<span></td>
+						<td style = " background-color:rgb(0,43,82);color:white;border:none;opacity:.8;border-radius:10px;">Cans<br /><span style = "font-weight:bold;font-size:14px;">6</span></td>
+						<td style = " background-color:rgb(0,43,82);color:white;border:none;opacity:.8;border-radius:10px;">Heavy<br /><span style = "font-weight:bold;font-size:14px;">30</td>
+						</tr> 
+
+						<tr style = "background-color:none;">
+						<td    style = " background-color:rgb(0,43,82);color:white;border:none;opacity:.8;border-radius:10px;" name="id">Hazardous<br /><span style = "font-weight:bold;font-size:14px;">22<span></td>
+						<td style = " background-color:rgb(0,43,82);color:white;border:none;opacity:.8;border-radius:10px;">ULD <br /><span style = "font-weight:bold;font-size:14px;">87.6%</span></td>
+						<td style = " background-color:rgb(0,43,82);color:white;border:none;opacity:.8;border-radius:10px;">ULD Scan<br /><span style = "font-weight:bold;font-size:14px;">4,876/hr</td>
+						</tr>
+
+						<tr style = "background-color:none;">
+						<td style = " background-color:rgb(0,43,82);color:white;border:none;opacity:.8;border-radius:10px;">Overflow<br /><span style = "font-weight:bold;font-size:14px;">PHX/OAK</td>
+						<td    style = " background-color:rgb(0,43,82);color:white;border:none;opacity:.8;border-radius:10px;" name="id">Rollover<br /><span style = "font-weight:bold;font-size:14px;">AYYC037FXz<br /><span style="color:silver;font-size:12px;font-style:italic;">Courtyard/1,oo1<span></td>
+						<td style = " background-color:rgb(0,43,82);color:white;border:none;opacity:.8;border-radius:10px;">Rollover <br /><span style = "font-weight:bold;font-size:14px;">AYYC038FX<br /><span style="color:silver;font-size:12px;font-style:italic;">Courtyard/1,111<span></td>
+						</tr>
+						</tbody>
+						</table>
+				
+					 
+					</div><!--end pre sort collapsable-->
+					
+					<div data-role="collapsible" data-theme="a" style="border:none;">
+						<h3>Assign Jobs<span style = "float:right">Scheduled:  14  / 14</span></h3>
+						<div style ="width:100%;background-color:rgb(0,43,82);color:silver;height:820px;position:relative;overflow-y:scroll;overflow-x:none;">
+						
+						<style>
+						  #gallery { float: left; width: 65%; min-height: 12em; }
+						  .gallery.custom-state-active { background: #eee; }
+						  .gallery li { float: left; width: 96px; padding: 0.4em; margin: 0 0.4em 0.4em 0; text-align: center; }
+						  .gallery li h5 { margin: 0 0 0.4em; cursor: move; }
+						  .gallery li a { float: right; }
+						  .gallery li a.ui-icon-zoomin { float: left; }
+						  .gallery li img { width: 100%; cursor: move; }
+						 
+						  #load { float: right;   min-height: 12em; padding: 1%; }
+						  #load h4 { line-height: 16px; margin: 0 0 0.4em; }
+						  #load h4 .ui-icon { float: left; }
+						  #load .gallery h5 { display: none; }
+						  
+						  #gate { float: right;   min-height: 12em; padding: 1%; }
+						  #gate h4 { line-height: 16px; margin: 0 0 0.4em; }
+						  #gate h4 .ui-icon { float: left; }
+						  #gate .gallery h5 { display: none; }
+						  
+						  #slide { float: right;   min-height: 12em; padding: 1%; }
+						  #slide h4 { line-height: 16px; margin: 0 0 0.4em; }
+						  #slide h4 .ui-icon { float: left; }
+						  #slide .gallery h5 { display: none; }
+						  
+						  #drivers { float: right;   min-height: 12em; padding: 1%; }
+						  #drivers h4 { line-height: 16px; margin: 0 0 0.4em; }
+						  #drivers h4 .ui-icon { float: left; }
+						  #drivers .gallery h5 { display: none; }
+						  </style>
+						  
+						  <script>
+						  $( function() {
+						 
+							// There's the gallery and the trash
+							var $gallery = $( "#gallery" ),
+							  $load = $( "#load" );
+							  $gate = $( "#gate" );
+							  $slide = $( "#slide" );
+							  $drivers = $( "#drivers" );
+							  
+							  
+						<!-----------------------------gallery load and gate draggable-------->
+						 
+							// Let the gallery items be draggable
+							$( "li", $gallery ).draggable({
+							  cancel: "a.ui-icon", // clicking an icon won't initiate dragging
+							  revert: "invalid", // when not dropped, the item will revert back to its initial position
+							  containment: "document",
+							  helper: "clone",
+							  cursor: "move"
+							});
+							
+							// Let load be droppable, accepting the gallery items
+							$load.droppable({
+							accept: "#gallery > li",
+							drop: function( event, ui ) {
+							deleteImageLoad( ui.draggable );
+							  }
+							});
+						 
+							// Let gate be droppable, accepting the gallery items
+							$gate.droppable({
+							accept: "#gallery > li",
+							drop: function( event, ui ) {
+							deleteImage( ui.draggable );
+							  }
+							});
+							
+							// Let slide be droppable, accepting the gallery items
+							$slide.droppable({
+							accept: "#gallery > li",
+							drop: function( event, ui ) {
+							deleteImageSlide( ui.draggable );
+							  }
+							});
+							
+							// Let drivers be droppable, accepting the gallery items
+							$drivers.droppable({
+							accept: "#gallery > li",
+							drop: function( event, ui ) {
+							deleteImageDrivers( ui.draggable );
+							  }
+							});
+							
+							
+							
+							
+							
+							
+						<!----------------------------GAllery droppable  load and gate---------->	
+							// Let the gallery be droppable as well, accepting items from gate
+							$gallery.droppable({
+							  accept: ".droppableShape",
+							  drop: function( event, ui ) {
+							  recycleImage( ui.draggable );
+							  }
+							});
+							
+							
+						<!-------------------------------------------image delete load and gate-------------->	
+							
+							// Image deletion function load
+							var recycle_icon = "<a href='link/to/recycle/script/when/we/have/js/off' title='Recycle this image' class='ui-icon ui-icon-refresh'>Recycle image</a>";
+							function deleteImageLoad( $item ) {
+							  $item.fadeOut(function() {
+								var $list = $( "ul", $load ).length ?
+								  $( "ul", $load ) :
+								  $( "<ul class='gallery ui-helper-reset'/>" ).appendTo( $load );
+						 
+								$item.find( "a.ui-icon-trash" ).remove();
+								$item.append( recycle_icon ).appendTo( $list ).fadeIn(function() {
+								  $item
+									.animate({ width: "48px" })
+									.find( "img" )
+									  .animate({ height: "36px" });
+								});
+							  });
+							}    
+							
+							// Image deletion function gate
+							var recycle_icon = "<a href='link/to/recycle/script/when/we/have/js/off' title='Recycle this image' class='ui-icon ui-icon-refresh'>Recycle image</a>";
+							function deleteImage( $item ) {
+							  $item.fadeOut(function() {
+								var $list = $( "ul", $gate ).length ?
+								  $( "ul", $gate ) :
+								  $( "<ul class='gallery ui-helper-reset'/>" ).appendTo( $gate );
+						 
+								$item.find( "a.ui-icon-trash" ).remove();
+								$item.append( recycle_icon ).appendTo( $list ).fadeIn(function() {
+								  $item
+									.animate({ width: "48px" })
+									.find( "img" )
+									  .animate({ height: "36px" });
+								});
+							  });
+							}
+							
+							// Image deletion function slide
+							var recycle_icon = "<a href='link/to/recycle/script/when/we/have/js/off' title='Recycle this image' class='ui-icon ui-icon-refresh'>Recycle image</a>";
+							function deleteImageSlide( $item ) {
+							  $item.fadeOut(function() {
+								var $list = $( "ul", $slide ).length ?
+								  $( "ul", $slide ) :
+								  $( "<ul class='gallery ui-helper-reset'/>" ).appendTo( $slide );
+						 
+								$item.find( "a.ui-icon-trash" ).remove();
+								$item.append( recycle_icon ).appendTo( $list ).fadeIn(function() {
+								  $item
+									.animate({ width: "48px" })
+									.find( "img" )
+									  .animate({ height: "36px" });
+								});
+							  });
+							}
+							
+							// Image deletion function drivers
+							var recycle_icon = "<a href='link/to/recycle/script/when/we/have/js/off' title='Recycle this image' class='ui-icon ui-icon-refresh'>Recycle image</a>";
+							function deleteImageDrivers( $item ) {
+							  $item.fadeOut(function() {
+								var $list = $( "ul", $drivers ).length ?
+								  $( "ul", $drivers ) :
+								  $( "<ul class='gallery ui-helper-reset'/>" ).appendTo( $drivers );
+						 
+								$item.find( "a.ui-icon-trash" ).remove();
+								$item.append( recycle_icon ).appendTo( $list ).fadeIn(function() {
+								  $item
+									.animate({ width: "48px" })
+									.find( "img" )
+									  .animate({ height: "36px" });
+								});
+							  });
+							}
+							
+						<!------------------------------------------------------------------------------------->	
+							
+						 
+							// Image recycle function
+							var trash_icon = "<a href='link/to/trash/script/when/we/have/js/off' title='Delete this image' class='ui-icon ui-icon-trash'>Delete image</a>";
+							function recycleImage( $item ) {
+							  $item.fadeOut(function() {
+								$item
+								  .find( "a.ui-icon-refresh" )
+									.remove()
+								  .end()
+								  .css( "width", "96px")
+								  .append( trash_icon )
+								  .find( "img" )
+									.css( "height", "72px" )
+								  .end()
+								  .appendTo( $gallery )
+								  .fadeIn();
+							  });
+							}
+						 
+							// Image preview function, demonstrating the ui.dialog used as a modal window
+							function viewLargerImage( $link ) {
+							  var src = $link.attr( "href" ),
+								title = $link.siblings( "img" ).attr( "alt" ),
+								$modal = $( "img[src$='" + src + "']" );
+						 
+							  if ( $modal.length ) {
+								$modal.dialog( "open" );
+							  } else {
+								var img = $( "<img alt='" + title + "' width='384' height='288' style='display: none; padding: 8px;' />" )
+								  .attr( "src", src ).appendTo( "body" );
+								setTimeout(function() {
+								  img.dialog({
+									title: title,
+									width: 400,
+									modal: true
+								  });
+								}, 1 );
+							  }
+							}
+						 
+							// Resolve the icons behavior with event delegation
+							$( "ul.gallery > li" ).on( "click", function( event ) {
+							  var $item = $( this ),
+								$target = $( event.target );
+						 
+							  if ( $target.is( "a.ui-icon-trash" ) ) {
+								deleteImage( $item );
+							  } else if ( $target.is( "a.ui-icon-zoomin" ) ) {
+								viewLargerImage( $target );
+							  } else if ( $target.is( "a.ui-icon-refresh" ) ) {
+								recycleImage( $item );
+							  }
+						 
+							  return false;
+							});
+						  } );
+						  </script>
+						 
+						 
+						<div class="ui-widget ui-helper-clearfix">
+						 
+						<ul id="gallery" class="gallery ui-helper-reset ui-helper-clearfix"> 
+						<li style = "width:400px;font-weight:bold;text-shadow:none;">Unassigned</li>
+						  
+						  <li class="ui-widget-content ui-corner-tr  droppableShape ">
+							<h5 >Anthony</h5>
+							 <img src="personA.png" alt="Anthony" width="96" height="72">
+							 <a href="link/to/trash/script/when/we/have/js/off" title="Delete this image" class="ui-icon ui-icon-trash">Delete image</a> 
+						  </li>
+						  
+						  <li class="ui-widget-content ui-corner-tr droppableShape">
+							<h5>Paula</h5>
+							<img src="personB.png" alt="Paula" width="96" height="72">
+							<!--<a href="images/high_tatras2.jpg" title="View larger image" class="ui-icon ui-icon-zoomin">View larger</a>-->
+							<a href="link/to/trash/script/when/we/have/js/off" title="Delete this image" class="ui-icon ui-icon-trash">Delete image</a>
+						  </li>
+						  
+						  <li class="ui-widget-content ui-corner-tr droppableShape">
+							<h5>Dennis</h5>
+							<img src="personC.png" alt="Dennis" width="96" height="72">
+							<a href="link/to/trash/script/when/we/have/js/off" title="Delete this image" class="ui-icon ui-icon-trash">Delete image</a>
+						  </li>
+						  
+						  <li class="ui-widget-content ui-corner-tr droppableShape">
+							<h5>Tom</h5>
+							<img src="personD.png" alt="Tom" width="96" height="72">
+							<a href="link/to/trash/script/when/we/have/js/off" title="Delete this image" class="ui-icon ui-icon-trash">Delete image</a>
+						  </li>
+						  
+						  <li class="ui-widget-content ui-corner-tr droppableShape">
+							<h5 >Anthony</h5>
+							 <img src="personA.png" alt="Anthony" width="96" height="72">
+							 <a href="link/to/trash/script/when/we/have/js/off" title="Delete this image" class="ui-icon ui-icon-trash">Delete image</a> 
+						  </li>
+						  
+						  <li class="ui-widget-content ui-corner-tr droppableShape">
+							<h5>Paula</h5>
+							<img src="personB.png" alt="Paula" width="96" height="72">
+							<!--<a href="images/high_tatras2.jpg" title="View larger image" class="ui-icon ui-icon-zoomin">View larger</a>-->
+							<a href="link/to/trash/script/when/we/have/js/off" title="Delete this image" class="ui-icon ui-icon-trash">Delete image</a>
+						  </li>
+						  
+						  <li class="ui-widget-content ui-corner-tr droppableShape">
+							<h5>Dennis</h5>
+							<img src="personC.png" alt="Dennis" width="96" height="72">
+							<a href="link/to/trash/script/when/we/have/js/off" title="Delete this image" class="ui-icon ui-icon-trash">Delete image</a>
+						  </li>
+						  
+						  <li class="ui-widget-content ui-corner-tr droppableShape">
+							<h5>Tom</h5>
+							<img src="personD.png" alt="Tom" width="96" height="72">
+							<a href="link/to/trash/script/when/we/have/js/off" title="Delete this image" class="ui-icon ui-icon-trash">Delete image</a>
+						  </li>
+						  
+						  <li class="ui-widget-content ui-corner-tr droppableShape">
+							<h5 >Anthony</h5>
+							 <img src="personA.png" alt="Anthony" width="96" height="72">
+							 <a href="link/to/trash/script/when/we/have/js/off" title="Delete this image" class="ui-icon ui-icon-trash">Delete image</a> 
+						  </li>
+						  
+						  <li class="ui-widget-content ui-corner-tr droppableShape">
+							<h5>Paula</h5>
+							<img src="personB.png" alt="Paula" width="96" height="72">
+							<!--<a href="images/high_tatras2.jpg" title="View larger image" class="ui-icon ui-icon-zoomin">View larger</a>-->
+							<a href="link/to/trash/script/when/we/have/js/off" title="Delete this image" class="ui-icon ui-icon-trash">Delete image</a>
+						  </li>
+						  
+						  <li class="ui-widget-content ui-corner-tr droppableShape">
+							<h5>Dennis</h5>
+							<img src="personC.png" alt="Dennis" width="96" height="72">
+							<a href="link/to/trash/script/when/we/have/js/off" title="Delete this image" class="ui-icon ui-icon-trash">Delete image</a>
+						  </li>
+						  
+						  <li class="ui-widget-content ui-corner-tr droppableShape">
+							<h5>Tom</h5>
+							<img src="personD.png" alt="Tom" width="96" height="72">
+							<a href="link/to/trash/script/when/we/have/js/off" title="Delete this image" class="ui-icon ui-icon-trash">Delete image</a>
+						  </li>
+						  
+						  <li class="ui-widget-content ui-corner-tr droppableShape">
+							<h5 >Anthony</h5>
+							 <img src="personA.png" alt="Anthony" width="96" height="72">
+							 <a href="link/to/trash/script/when/we/have/js/off" title="Delete this image" class="ui-icon ui-icon-trash">Delete image</a> 
+						  </li>
+						  
+						  <li class="ui-widget-content ui-corner-tr droppableShape">
+							<h5>Paula</h5>
+							<img src="personB.png" alt="Paula" width="96" height="72">
+							<!--<a href="images/high_tatras2.jpg" title="View larger image" class="ui-icon ui-icon-zoomin">View larger</a>-->
+							<a href="link/to/trash/script/when/we/have/js/off" title="Delete this image" class="ui-icon ui-icon-trash">Delete image</a>
+						  </li>
+						  
+						  <li class="ui-widget-content ui-corner-tr droppableShape">
+							<h5>Dennis</h5>
+							<img src="personC.png" alt="Dennis" width="96" height="72">
+							<a href="link/to/trash/script/when/we/have/js/off" title="Delete this image" class="ui-icon ui-icon-trash">Delete image</a>
+						  </li>
+						  
+						  <li class="ui-widget-content ui-corner-tr droppableShape">
+							<h5>Tom</h5>
+							<img src="personD.png" alt="Tom" width="96" height="72">
+							<a href="link/to/trash/script/when/we/have/js/off" title="Delete this image" class="ui-icon ui-icon-trash">Delete image</a>
+						  </li>
+						  
+						  
+						</ul>
+
+
+						<div   id = "load"  style = "position:absolute;top:0px;right:0px;border:solid 1px silver;width:150px;height:100px;text-shadow:none;"> 
+						 <h4  >Load</h4>
+						</div>
+						 
+						<div    id = "gate"  style = "position:absolute;top:200px;right:0px;border:solid 1px silver;width:150px;height:100px;text-shadow:none;"> 
+						 <h4  >Gate</h4>
+						</div>
+
+						<div   id = "slide"  style = "position:absolute;top:400px;right:0px;border:solid 1px silver;width:150px;height:100px;text-shadow:none;"> 
+						 <h4  >Slide</h4>
+						</div>
+
+						<div   id = "drivers"  style = "position:absolute;top:600px;right:0px;border:solid 1px silver;width:150px;height:100px;text-shadow:none;"> 
+						 <h4   >Drivers</h4>
+						</div>
+
+						</div>
+						</div>
+						</div>
+
+						<!--Select Flights-->
+						<div data-role="collapsible" data-theme="a" style="border:none;">
+						<h3>Select Flights<span style = "float:right">10</span></h3>
+
+
+						</div>
+
+						<!----------My Notes---------------->
+						<div data-role="collapsible" data-theme="a" style="border:none;">
+						<h3>Notes<span style = "float:right">10</span></h3>
+
+						<p style="margin-top:10px;"><span style="font-size:18px;color:rgb(255,143,53);">Que</span></p>
+
+						<table   id="details"  cellspacing="0" width="100%" class="footable table toggle-circle">
+						<thead>
+						<tr> 
+						<th data-sort-initial="true" data-type="numeric" data-class="expand"  data-toggle="true" style="background-color:#4D1486;color:white;">Message ID</th>
+						<th style="background-color:#4D1486;color:white;">From</th>
+						<th style="background-color:#4D1486;color:white;">To</th>
+						<th style="background-color:#4D1486;color:white;" data-hide="phone">Subject</th>
+						<th style="background-color:#4D1486;color:white;" data-hide="phone">Size</th>
+						</tr> 
+						</thead>            
+						<tbody>
+
+						<tr >
+						<td  style="border-top:none;" name="id" >99-90876</td>
+						<td style="border-top:none;">xxx@yyy.com</td>
+						<td style="border-top:none;">xxx@yy.com</td>
+						<td style="border-top:none;">New delivery schedule</td>
+						<td style="border-top:none;">45kb</td>
+						 </tr>
+
+						<tr >
+						<td  style="border-top:none;" name="id" >99-90876</td>
+						<td style="border-top:none;">xxx@yyy.com</td>
+						<td style="border-top:none;">xxx@yy.com</td>
+						<td style="border-top:none;">New delivery schedule</td>
+						<td style="border-top:none;">45kb</td>
+						 </tr>
+
+						<tr >
+						<td  style="border-top:none;" name="id" >99-90876</td>
+						<td style="border-top:none;">xxx@yyy.com</td>
+						<td style="border-top:none;">xxx@yy.com</td>
+						<td style="border-top:none;">New delivery schedule</td>
+						<td style="border-top:none;">45kb</td>
+						 </tr>
+
+						<tr >
+						<td  style="border-top:none;" name="id" >99-90876</td>
+						<td style="border-top:none;">xxx@yyy.com</td>
+						<td style="border-top:none;">xxx@yy.com</td>
+						<td style="border-top:none;">New delivery schedule</td>
+						<td style="border-top:none;">45kb</td>
+						 </tr>
+
+						<tr >
+						<td  style="border-top:none;" name="id" >99-90876</td>
+						<td style="border-top:none;">xxx@yyy.com</td>
+						<td style="border-top:none;">xxx@yy.com</td>
+						<td style="border-top:none;">New delivery schedule</td>
+						<td style="border-top:none;">45kb</td>
+						 </tr>
+
+						<tr >
+						<td  style="border-top:none;" name="id" >99-90876</td>
+						<td style="border-top:none;">xxx@yyy.com</td>
+						<td style="border-top:none;">xxx@yy.com</td>
+						<td style="border-top:none;">New delivery schedule</td>
+						<td style="border-top:none;">45kb</td>
+						 </tr>
+						</table>
+
+
+						<p style="margin-top:10px;"><span style="font-size:18px;color:rgb(255,143,53);">History</span></p>
+
+						<table   id="details"  cellspacing="0" width="100%" class="footable table toggle-circle" >
+						<thead>
+						<tr> 
+						 
+						<th data-sort-initial="true" data-type="numeric" data-class="expand"  data-toggle="true" style="background-color:#4D1486;color:white;">Message ID</th>
+						<th style="background-color:#4D1486;color:white;">Delivery Time</th>
+						<th style="background-color:#4D1486;color:white;">From</th>
+						<th data-hide="phone">To</th>
+						<th data-hide="phone">Subject</th>
+						<th data-hide="phone">Size</th>
+						<th data-hide="phone">Stats</th>
+						 
+						</tr> 
+						</thead>            
+						<tbody>
+
+						<tr >
+						<td  style="border-top:none;" name="id" >99-90876</td>
+						<td style="border-top:none;">9:30 AM</td>
+						<td style="border-top:none;">xxx@yy.com</td>
+						<td style="border-top:none;">xxx@yy.com</td>
+						<td style="border-top:none;">Future plans for drilling platform</td>
+						<td style="border-top:none;">45kb</td>
+						<td style="border-top:none;">unkonwn</td>
+						 </tr>
+
+						<tr >
+						<td  style="border-top:none;" name="id" >99-90876</td>
+						<td style="border-top:none;">9:30 AM</td>
+						<td style="border-top:none;">xxx@yy.com</td>
+						<td style="border-top:none;">xxx@yy.com</td>
+						<td style="border-top:none;">Future plans for drilling platform</td>
+						<td style="border-top:none;">45kb</td>
+						<td style="border-top:none;">unkonwn</td>
+						 </tr>
+
+						<tr >
+						<td  style="border-top:none;" name="id" >99-90876</td>
+						<td style="border-top:none;">9:30 AM</td>
+						<td style="border-top:none;">xxx@yy.com</td>
+						<td style="border-top:none;">xxx@yy.com</td>
+						<td style="border-top:none;">Future plans for drilling platform</td>
+						<td style="border-top:none;">45kb</td>
+						<td style="border-top:none;">unkonwn</td>
+						 </tr>
+
+						<tr >
+						<td  style="border-top:none;" name="id" >99-90876</td>
+						<td style="border-top:none;">9:30 AM</td>
+						<td style="border-top:none;">xxx@yy.com</td>
+						<td style="border-top:none;">xxx@yy.com</td>
+						<td style="border-top:none;">Future plans for drilling platform</td>
+						<td style="border-top:none;">45kb</td>
+						<td style="border-top:none;">unkonwn</td>
+						 </tr>
+
+						<tr >
+						<td  style="border-top:none;" name="id" >99-90876</td>
+						<td style="border-top:none;">9:30 AM</td>
+						<td style="border-top:none;">xxx@yy.com</td>
+						<td style="border-top:none;">xxx@yy.com</td>
+						<td style="border-top:none;">Future plans for drilling platform</td>
+						<td style="border-top:none;">45kb</td>
+						<td style="border-top:none;">unkonwn</td>
+						 </tr>
+
+						<tr >
+						<td  style="border-top:none;" name="id" >99-90876</td>
+						<td style="border-top:none;">9:30 AM</td>
+						<td style="border-top:none;">xxx@yy.com</td>
+						<td style="border-top:none;">xxx@yy.com</td>
+						<td style="border-top:none;">Future plans for drilling platform</td>
+						<td style="border-top:none;">45kb</td>
+						<td style="border-top:none;">unkonwn</td>
+						 </tr>
+
+						<tr >
+						<td  style="border-top:none;" name="id" >99-90876</td>
+						<td style="border-top:none;">9:30 AM</td>
+						<td style="border-top:none;">xxx@yy.com</td>
+						<td style="border-top:none;">xxx@yy.com</td>
+						<td style="border-top:none;">Future plans for drilling platform</td>
+						<td style="border-top:none;">45kb</td>
+						<td style="border-top:none;">unkonwn</td>
+						 </tr>
+						</table>
+						<div style="height:20px;"></div>
+						</div><!--collapsable messages-->
+					
+					
+				
+				
+				
+				</div><!--end collapsable set...accordion in second right column area-->
+			</div><!--end right column-->
+			
+		</div><!--end row that contain the 2 columns--> 
+
+	</div><!--end page-->
+</body> 
+</html>
